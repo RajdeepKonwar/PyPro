@@ -76,7 +76,11 @@ def main():
 
         if event == 'Run + Profile':
             try:
-                parser = Parser(values['-INPUTFILE-'])
+                input_file = values['-INPUTFILE-']
+                if input_file == '':
+                    continue
+
+                parser = Parser(input_file)
                 tmp_file = parser.Parse()
 
                 runner = Runner(tmp_file)
